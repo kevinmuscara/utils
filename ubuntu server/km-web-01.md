@@ -1,7 +1,5 @@
 # ubuntu web server
 
-have to set static ip using `netplan`
-
 config file located at: `/etc/netplan/00-installer-config.yaml`
 
 ```yaml
@@ -10,14 +8,7 @@ network:
   renderer: networkd
   ethernets:
     eno2:
-      addresses:
-        - <ip>/<cidr>
-      nameservers:
-        search: []
-        addresses: []
-      routes:
-        - to: default
-          via: <gateway_ip>
+      dhcp4: true
 ```
 
 apply config using `sudo netplan apply`
